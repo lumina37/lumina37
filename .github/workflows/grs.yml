@@ -8,11 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v6
 
       - name: Generate stats card
-        uses: readme-tools/github-readme-stats-action@v1
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&number_format=long&theme=transparent
